@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "be-nice-site"
+version = "0.1.0"
+description = ""
+authors = ["Alex McIntosh <alex.mcintosh@krakentechnologies.ltd>"]
+readme = "README.md"
+packages = [{include = "be_nice_site"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

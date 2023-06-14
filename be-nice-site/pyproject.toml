@@ -8,6 +8,11 @@ packages = [{include = "be_nice_site"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+pillow = "^9.5.0"
+django = "^4.2.1"
+django-crispy-forms = "^2.0"
+bootstrap4 = "^0.1.0"
+crispy-bootstrap4 = "^2022.1"
 
 
 [build-system]

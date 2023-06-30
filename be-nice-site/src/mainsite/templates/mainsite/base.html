@@ -8,12 +8,13 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="{% static 'mainsite/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'mainsite/css/main.css' %}">
+        <link rel="shortcut icon" type="favicon.ico" href="{% get_media_prefix %}/rock-favicon.png" />
 
         {% if title %}
-            <title> Store - {{ title }} </title>
+            <title> BE N!CE - {{ title }} </title>
         {% else %}
-            <title> Store </title>
+            <title> BE N!CE </title>
         {% endif %}
     </head>
     <body>
@@ -32,13 +33,13 @@
               <a class="nav-item nav-link" href="{% url 'mainsite-home' %}">Home</a>
               <a class="nav-item nav-link" href="{% url 'mainsite-about' %}">About</a>
               <a class="navbar-brand nav-link" href="https://www.instagram.com/be_nice_band/">
-                <img class="d-inline-block align-top" src="/be_nice_site/media/defaultpictures/instagramlogo.jpeg" height="30" width="30"/>Instagram!
+                <img class="d-inline-block align-top" src="{% get_media_prefix %}defaultpictures/instagramlogo.png" height="30" width="30"/>  Instagram!
               </a>
               <a class="navbar-brand nav-link" href="https://www.twitter.com/BE_NICE_BAND/">
-                <img class="d-inline-block align-top" src="/be_nice_site/media/defaultpictures/twitterlogo.png" height="30" width="30"/>Twitter!
+                <img class="d-inline-block align-top" src="{% get_media_prefix %}defaultpictures/twitterlogo.png" height="30" width="30"/>  Twitter!
               </a>
-              <a class="navbar-brand nav-link" href="https://www.https://www.facebook.com/beniceband1/">
-                <img class="d-inline-block align-top" src="/be_nice_site/media/defaultpictures/facebooklogo.png" height="30" width="30"/>Facebook!
+              <a class="navbar-brand nav-link" href="https://www.facebook.com/beniceband1/">
+                <img class="d-inline-block align-top" src="{% get_media_prefix %}defaultpictures/facebooklogo.png" height="30" width="30"/>  Facebook!
               </a>
             </div>
             <!-- Navbar Right Side -->

@@ -39,6 +39,10 @@ label {
     font-size: 0.8125rem;
 }
 
+.text-muted {
+    color: rgb(240,240,240)
+}
+
 .required label, label.required {
     font-weight: bold;
     color: var(--body-fg);

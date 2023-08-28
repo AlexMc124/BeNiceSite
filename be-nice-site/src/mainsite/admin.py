@@ -1,7 +1,10 @@
 from django.contrib import admin
 
-from .models import Band, BandMember, Gig
+from . import models
 
-admin.site.register(Band)
-admin.site.register(BandMember)
-admin.site.register(Gig)
+admin.site.register(models.Band)
+admin.site.register(models.BandMember)
+admin.site.register(models.Gig)
+admin.site.register(models.Instrument)
+admin.site.register(models.Genre)
+admin.site.register(models.Location)

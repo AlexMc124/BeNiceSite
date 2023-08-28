@@ -1,0 +1,23 @@
+{% extends "mainsite/base.html" %}
+{% block content %}
+<div class="col-lg-12">
+    <div class="row">
+        <h1> Gigs! </h1>
+    </div>
+    <div class="row">
+        <h3> Info for all our latest live listings </h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h3> {{ gig.title }} </h3>
+            <p> {{ gig.description }} </p>
+            <p> {{ gig.date }} </p>
+            <p> {{ gig.time }} </p>
+            <p> {{ gig.venue }} </p>
+            <p> {{ gig.address }} </p>
+            <p> {{ gig.price }} </p>
+            <p> {{ gig.ticket_link }} </p>
+            <p> {{ gig.image }} </p>
+        </div>
+</div>
+{% endblock content %}

@@ -19,7 +19,7 @@
     </head>
     <body>
     <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" id="navbar_header">
         <div class="container">
           <a class="navbar-brand mr-4" href="{% url 'mainsite-home' %}">BE N!CE</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,19 +28,12 @@
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
             {% if user.is_staff %}
-              <a class="nav-item nav-link" href="{% url 'product-create' %}">Add a gig</a>
+              {% comment %} <a class="nav-item nav-link" href="{% url 'product-create' %}">Add a gig</a> {% endcomment %}
             {% endif %}
               <a class="nav-item nav-link" href="{% url 'mainsite-home' %}">Home</a>
               <a class="nav-item nav-link" href="{% url 'mainsite-about' %}">About</a>
-              <a class="navbar-brand nav-link" href="https://www.instagram.com/be_nice_band/">
-                <img class="d-inline-block align-top" src="{% get_media_prefix %}defaultpictures/instagramlogo.png" height="30" width="30"/>  Instagram!
-              </a>
-              <a class="navbar-brand nav-link" href="https://www.twitter.com/BE_NICE_BAND/">
-                <img class="d-inline-block align-top" src="{% get_media_prefix %}defaultpictures/twitterlogo.png" height="30" width="30"/>  Twitter!
-              </a>
-              <a class="navbar-brand nav-link" href="https://www.facebook.com/beniceband1/">
-                <img class="d-inline-block align-top" src="{% get_media_prefix %}defaultpictures/facebooklogo.png" height="30" width="30"/>  Facebook!
-              </a>
+              <a class="nav-item nav-link" href="{% url 'mainsite-gigs' %}">Gigs</a>
+              <a class="nav-item nav-link" href="{% url 'mainsite-bands' %}">Bands</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
@@ -56,7 +49,37 @@
         </div>
       </nav>
     </header>
+    
     <main role="main" class="container">
+        <div class="container">
+          <nav class="sidebar" id="sidebar_links">
+            <div class="sidebar-nav mr-auto">
+              <ul style="list-style: none;">
+                <li>
+                  <a class="navbar-brand nav-link" href="https://www.instagram.com/be_nice_band/" id="sidebar_link">
+                    <img class="d-inline-block align-top" src="{% get_media_prefix %}defaultpictures/instagramlogo.png" height="30" width="30"/>  Instagram!
+                  </a>
+                </li>
+                <li>
+    
+                  <a class="navbar-brand nav-link" href="https://www.twitter.com/BE_NICE_BAND/">
+                    <img class="d-inline-block align-top" src="{% get_media_prefix %}defaultpictures/twitterlogo.png" height="30" width="30"/>  Twitter!
+                  </a>
+                </li>
+                <li>
+                  <a class="navbar-brand nav-link" href="https://www.facebook.com/beniceband1/">
+                    <img class="d-inline-block align-top" src="{% get_media_prefix %}defaultpictures/facebooklogo.png" height="30" width="30"/>  Facebook!
+                  </a>
+                </li>
+                <li>
+                  <a class="navbar-brand nav-link" href="https://open.spotify.com/artist/6nnljk5ucY1fQue3CzHjZj">
+                    <img class="d-inline-block align-top" src="{% get_media_prefix %}defaultpictures/spotifylogo.png" height="30" width="30"/>  Spotify!
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       <div class="row">
           {% if messages %}
           <div class="col-md-8">

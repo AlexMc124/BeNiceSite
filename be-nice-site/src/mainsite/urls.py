@@ -18,4 +18,9 @@ urlpatterns = [
         views.AddBand.as_view(),
         name="mainsite-add-band",
     ),
+    path(
+        "add_gig/",
+        views.AddGig.as_view(),
+        name="mainsite-add-gig",
+    ),
 ]

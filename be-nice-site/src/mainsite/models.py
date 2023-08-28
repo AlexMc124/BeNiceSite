@@ -1,8 +1,10 @@
 from django.db import models
 
 
-class Location(models.Model):
+class Venue(models.Model):
     name = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    postcode = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
@@ -35,26 +37,17 @@ class Band(models.Model):
     name = models.CharField(max_length=100)
     genre = models.ManyToManyField(Genre)
     description = models.TextField()
-    location = models.ManyToManyField(Location)
+    location = models.CharField(max_length=100)
+    members = models.ManyToManyField(BandMember, blank=True)
 
     def __str__(self):
         return self.name
-
-    @classmethod
-    def create(cls, name: str, genre: str, description: str, location: str):
-        genre = Genre.objects.get(name=genre)
-        location = Location.objects.get(name=location)
-        band = Band.objects.create(name=name, description=description)
-        band.genre.set([genre])
-        band.location.set([location])
-        band.save()
-        return band
 
 
 class Gig(models.Model):
     date = models.DateField()
     time = models.TimeField()
-    location = models.CharField(max_length=100)
+    venue = models.ForeignKey(Venue, on_delete=models.CASCADE, null=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     support = models.CharField(max_length=100)
     description = models.TextField()

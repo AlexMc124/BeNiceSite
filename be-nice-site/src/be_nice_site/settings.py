@@ -56,7 +56,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "be_nice_site.urls"
-
+LOGIN_REDIRECT_URL = "mainsite-home"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",

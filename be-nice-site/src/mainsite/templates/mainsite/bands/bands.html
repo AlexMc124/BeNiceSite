@@ -3,11 +3,14 @@
 <div class="col-lg-12">
     <div class="row">
         <h1> Bands we know! </h1>
+    {% if user.is_authenticated and user.is_staff %}
+        <p><a type="button" class="btn btn-primary" href="{% url 'mainsite-add-band' %}">Add Band</a></p>
+        <p><a type="button" class="btn btn-primary" href="{% url 'mainsite-add-band-member' %}">Add Band Member</a></p>
     </div>
-    <div class="container">
-        <a type="button" class="btn btn-primary" href="{% url 'mainsite-add-band' %}">Add Band</a>
-        <a type="button" class="btn btn-primary" href="{% url 'mainsite-add-band-member' %}">Add Band Member</a>
+    {% else %}
     </div>
+    {% endif %}
+
     {% for band in bands %}
     <div class="col-lg-12">
         <h2>{{ band.name }}</h2>

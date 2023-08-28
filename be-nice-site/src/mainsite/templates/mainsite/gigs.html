@@ -3,7 +3,13 @@
 <div class="col-lg-12">
     <div class="row">
         <h1> Gigs! </h1>
+        {% if user.is_authenticated and user.is_staff %}
+        <div>
+            <p><a class="btn btn-primary" href="{% url 'mainsite-add-gig' %}">Add a Gig!</a></p>
+        </div>    
+    {% endif %}
     </div>
+    
     <div class="row">
         <h3> Info for all our latest live listings </h3>
     </div>

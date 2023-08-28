@@ -14,39 +14,38 @@ def about(request):
     return render(request, "mainsite/about.html", {"title": "About"})
 
 
-class AddBandMember(generic.FormView):
+class AddBandMember(generic.CreateView):
     form_class = mainsite_forms.AddBandMemberForm
     template_name = "mainsite/forms/add_band_member.html"
 
     def form_valid(self, form):
-        band = models.Band(
-            name=form.cleaned_data["name"],
-            genre=form.cleaned_data["genre"],
-            description=form.cleaned_data["description"],
-            membership=form.cleaned_data["membership"],
-        )
-        band.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse("mainsite-bands")
+
+
+class AddGig(generic.CreateView):
+    form_class = mainsite_forms.AddGigForm
+    template_name = "mainsite/forms/add_gig_form.html"
+
+    def form_valid(self, form):
         return super().form_valid(form)
 
     def get_success_url(self):
         return reverse("mainsite-gigs")
 
 
-class AddBand(generic.FormView):
+class AddBand(generic.CreateView):
     form_class = mainsite_forms.AddBandForm
     template_name = "mainsite/forms/add_band_form.html"
 
     def form_valid(self, form):
-        models.Band.create(
-            name=form.cleaned_data["name"],
-            genre=form.cleaned_data["genre"],
-            description=form.cleaned_data["description"],
-            location=form.cleaned_data["location"],
-        )
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse("mainsite-band")
+        # Redirect to the band page
+        return reverse("mainsite-band", kwargs={"name": self.object.name})
 
 
 class BandDetailView(generic.DetailView):

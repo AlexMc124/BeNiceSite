@@ -1,6 +1,6 @@
 {% extends "mainsite/base.html" %}
 {% block content %}
-<div class="col-lg-12">
+<div class="col-lg-10">
     <div class="row">
         <h1> Gigs! </h1>
         {% if user.is_authenticated and user.is_staff %}
@@ -13,17 +13,21 @@
     <div class="row">
         <h3> Info for all our latest live listings </h3>
     </div>
+
+    {% for gig in gigs %}
     <div class="row">
-        <div class="col-lg-12">
-            <h3> {{ gig.title }} </h3>
-            <p> {{ gig.description }} </p>
-            <p> {{ gig.date }} </p>
-            <p> {{ gig.time }} </p>
-            <p> {{ gig.venue }} </p>
-            <p> {{ gig.address }} </p>
-            <p> {{ gig.price }} </p>
-            <p> {{ gig.ticket_link }} </p>
-            <p> {{ gig.image }} </p>
+        <div class="col-lg-10">
+            <h3><b><u> {{ gig.venue }} </b></u></h3>
+            <h5> {{ gig.date }}, {{ gig.time }} : £{{ gig.price }} </h5>
+            {% if gig.support is not None %}
+                <h6>Playing with : </h6>
+                {% for support in gig.support.all %}
+                    {{ support.name }}
+                {% endfor %}
+            {% endif %}
+            {{ gig.description }} 
+            
         </div>
-</div>
+    </div>
+    {% endfor %}
 {% endblock content %}

@@ -92,4 +92,4 @@ class GigListView(generic.ListView):
         return context
 
     def get_queryset(self):
-        return models.Gig.objects.order_by("date")
+        return models.Gig.objects.order_by("date").select_related("venue")

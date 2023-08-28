@@ -123,4 +123,15 @@ class Migration(migrations.Migration):
                 ),
             ],
         ),
+        migrations.RemoveField(
+            model_name="gig",
+            name="support",
+        ),
+        migrations.AddField(
+            model_name="gig",
+            name="support",
+            field=models.ManyToManyField(
+                blank=True, related_name="support", to="mainsite.band"
+            ),
+        ),
     ]

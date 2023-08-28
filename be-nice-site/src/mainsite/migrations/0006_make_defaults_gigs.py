@@ -166,12 +166,13 @@ def create_band(apps, schema_editor):
         gig["date"] = gig["date"].strftime("%Y-%m-%d")
         gig["time"] = gig["time"].strftime("%H:%M")
         gig["description"] = gig["description"].replace("\n", "")
-        if gig["support"]:
-            gig["support"] = [Band.objects.get(name=band) for band in gig["support"]]
-        else:
-            # remove the key if it's empty
+        if gig["support"] is None:
             del gig["support"]
-        Gig.objects.create(**gig)
+        else:
+            bands = Band.objects.filter(name__in=gig["support"])
+            del gig["support"]
+        new_gig = Gig.objects.create(**gig)
+        new_gig.support.set(bands)
 
 
 class Migration(migrations.Migration):

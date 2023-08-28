@@ -1,6 +1,6 @@
 {% extends "mainsite/base.html" %}
 {% block content %}
-<div class="col-lg-12">
+<div class="col-lg-10">
     <div class="row">
         <h1> Bands we know! </h1>
     {% if user.is_authenticated and user.is_staff %}
@@ -12,7 +12,7 @@
     {% endif %}
 
     {% for band in bands %}
-    <div class="col-lg-12">
+    <div class="col-lg-10">
         <h2>{{ band.name }}</h2>
         <p>{{ band.description }}</p>
         <p><a class="btn btn-primary" href="{% url "mainsite-band" band.name %}" role="button">View details</a></p>

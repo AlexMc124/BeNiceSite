@@ -49,7 +49,7 @@ class Gig(models.Model):
     time = models.TimeField()
     venue = models.ForeignKey(Venue, on_delete=models.CASCADE, null=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
-    support = models.CharField(max_length=100)
+    support = models.ManyToManyField(Band, blank=True, related_name="support")
     description = models.TextField()
 
     def __str__(self):
